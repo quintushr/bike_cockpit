@@ -50,7 +50,6 @@ class SpeedManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
 struct BikeCockpitView: View {
     @State private var distanceLeft: Double = 120.0
-    @State private var batteryLevel: Int = 63
     let maxSpeed: Double = 50.0 // Vitesse max (pour le cercle)
     let markerStep: Double = 2.5 // Intervalle des repères en km/h
     @State private var lineWidth = CGFloat(15)
@@ -66,15 +65,18 @@ struct BikeCockpitView: View {
     
     var body: some View {
         VStack(spacing: 30) {
-                    Spacer()
+            Spacer()
+            
             // Formatter pour la date et l'heure
             Text("\(dateFormatter.string(from: Date()))")  // Affichage de la date et heure formatées
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.gray.opacity(0.2))
-                            .cornerRadius(10)
+                .font(.headline)
+                .foregroundColor(.white)
+                .padding()
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(10)
+            
             Spacer()
+            
             // Cercle avec la vitesse
             ZStack {
                 Circle()
@@ -107,7 +109,7 @@ struct BikeCockpitView: View {
             
             Spacer()
             
-            // Distance parcourue et batterie
+            // Distance parcourue et bouton de paramétrage (sans texte)
             HStack {
                 // Distance
                 Text("\(String(format: "%.1f", speedManager.totalDistance)) km")
@@ -116,65 +118,26 @@ struct BikeCockpitView: View {
                 
                 Spacer()
                 
-                // Batterie avec une jauge circulaire
-                ZStack {
-                    Circle()
-                        .stroke(lineWidth: 10)
-                        .opacity(0.2)
-                        .foregroundColor(.gray)
-                    
-                    Circle()
-                        .trim(from: 0.0, to: CGFloat(batteryLevel) / 100.0)
-                        .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
-                        .foregroundColor(batteryLevel > 20 ? .green : .red)
-                        .rotationEffect(Angle(degrees: 270))
-                        .animation(.linear)
-                    
-                    VStack {
-                        Text("\(batteryLevel)%")
-                            .font(.title2)
-                            .foregroundColor(batteryLevel > 20 ? .green : .red)
-                    }
+                // Bouton de paramétrage sans texte
+                Button(action: {
+                    // Action lors de l'appui sur le bouton de paramétrage
+                    print("Paramètres appuyé")
+                }) {
+                    Image(systemName: "gearshape")
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
+                        .clipShape(Circle())  // Bouton circulaire
+                        .shadow(radius: 10)
                 }
-                .frame(width: 60, height: 60)
+                .frame(width: 60, height: 60)  // Taille du bouton
             }
             .padding(.horizontal, 30)
             
             Spacer()
-            
-            // Menu des contrôles avec animations et meilleure ergonomie
         }
         .background(Color.black.edgesIgnoringSafeArea(.all))
-    }
-}
-
-// Sous-vue pour les boutons de contrôle avec amélioration du design
-struct ControlButtonView: View {
-    var imageName: String
-    var title: String
-    var backgroundColor: Color
-    
-    var body: some View {
-        VStack {
-            Image(systemName: imageName)
-                .font(.title)
-                .foregroundColor(.white)
-                .padding()
-                .background(backgroundColor)
-                .clipShape(Circle())  // Rond pour un look plus moderne
-                .shadow(radius: 10)
-            
-            Text(title)
-                .font(.caption)
-                .foregroundColor(.white)
-        }
-        .frame(width: 70, height: 100)  // Meilleure ergonomie
-        .onTapGesture {
-            // Animation lors de l’appui
-            withAnimation(.easeInOut(duration: 0.2)) {
-                // Action associée au bouton
-            }
-        }
     }
 }
 
