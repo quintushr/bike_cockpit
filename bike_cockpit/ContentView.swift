@@ -66,7 +66,10 @@ struct BikeCockpitView: View {
     let markerStep: Double = 2.5 // Intervalle des repères en km/h
     @State private var lineWidth = CGFloat(15)
     @ObservedObject var speedManager = SpeedManager()
-
+    
+    // Ajouter une variable pour la date et l'heure actuelles
+    @State private var currentDate = Date()
+    
     // Formatter pour la date et l'heure
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -80,7 +83,7 @@ struct BikeCockpitView: View {
             Spacer()
             
             // Formatter pour la date et l'heure
-            Text("\(dateFormatter.string(from: Date()))")  // Affichage de la date et heure formatées
+            Text("\(dateFormatter.string(from: currentDate))")
                 .font(.headline)
                 .foregroundColor(.white)
                 .padding()
@@ -150,6 +153,12 @@ struct BikeCockpitView: View {
             Spacer()
         }
         .background(Color.black.edgesIgnoringSafeArea(.all))
+        .onAppear {
+                    // Lancer un Timer pour rafraîchir la date et l'heure chaque seconde
+                    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+                        currentDate = Date() // Mettre à jour la date actuelle
+                    }
+                }
     }
 }
 
