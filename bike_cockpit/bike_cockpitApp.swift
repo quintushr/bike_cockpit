@@ -11,7 +11,7 @@ import SwiftUI
 struct bike_cockpitApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BikeCockpitView()
         }
     }
 }
