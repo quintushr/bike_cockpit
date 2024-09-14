@@ -7,6 +7,8 @@ class SpeedManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var totalDistance: Double = 0.0  // Distance totale parcourue en km
     
     private var lastLocation: CLLocation?  // Stocker la dernière localisation connue
+    private var speedHistory: [Double] = []  // Historique des vitesses pour moyenne mobile
+    private let smoothingFactor = 5  // Nombre de points à utiliser pour la moyenne mobile
     
     override init() {
         locationManager = CLLocationManager()
@@ -18,19 +20,28 @@ class SpeedManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.activityType = .fitness
         locationManager.startUpdatingLocation() // Commence à récupérer la localisation
         
-        // Demande de permission d'utilisation de la localisation
         locationManager.requestWhenInUseAuthorization()
+        
+        // Mises à jour fréquentes
+        locationManager.distanceFilter = 5 // Mise à jour tous les 5 mètres
     }
     
     // Fonction appelée lorsque la localisation est mise à jour
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
-            // Calcul de la vitesse (en km/h)
-            if location.speed > 0 {
-                speed = location.speed * 3.6 // Conversion de m/s en km/h
-            } else {
-                speed = 0.0
+            // Calcul de la vitesse brute (en km/h)
+            let rawSpeed = max(0, location.speed * 3.6)  // Conversion m/s -> km/h, et éviter les vitesses négatives
+            
+            // Ajout à l'historique pour le lissage
+            speedHistory.append(rawSpeed)
+            
+            // Limitation de la taille de l'historique (pour éviter une accumulation infinie)
+            if speedHistory.count > smoothingFactor {
+                speedHistory.removeFirst()
             }
+            
+            // Calcul de la moyenne mobile pour lisser la vitesse
+            speed = speedHistory.reduce(0, +) / Double(speedHistory.count)
             
             // Calcul de la distance parcourue
             if let lastLocation = lastLocation {
@@ -38,7 +49,7 @@ class SpeedManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 totalDistance += distance
             }
             
-            // Met à jour la dernière localisation connue
+            // Mise à jour de la dernière localisation connue
             lastLocation = location
         }
     }
@@ -47,6 +58,7 @@ class SpeedManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         print("Erreur de localisation: \(error.localizedDescription)")
     }
 }
+
 
 struct BikeCockpitView: View {
     @State private var distanceLeft: Double = 120.0
