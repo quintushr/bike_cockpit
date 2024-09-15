@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-<<<<<<< HEAD
-
-=======
     "%@" : {
 
     },
@@ -46,7 +43,7 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Réinitialiser la distance parcourue"
           }
         }
@@ -100,7 +97,6 @@
         }
       }
     }
->>>>>>> d1722bb (Feat : add string localization)
   },
   "version" : "1.0"
 }
