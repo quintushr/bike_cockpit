@@ -18,6 +18,8 @@
 		A28292CB2C96E9570053E0C3 /* SpeedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292CA2C96E9570053E0C3 /* SpeedCircleView.swift */; };
 		A28292CD2C96E9880053E0C3 /* BottomControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292CC2C96E9880053E0C3 /* BottomControlsView.swift */; };
 		A28292CF2C96EA4A0053E0C3 /* BikeCockpitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292CE2C96EA4A0053E0C3 /* BikeCockpitView.swift */; };
+		A28292D12C96F15F0053E0C3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292D02C96F15F0053E0C3 /* SettingsView.swift */; };
+		A28292D42C96F6CD0053E0C3 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292D32C96F6CD0053E0C3 /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		A28292CA2C96E9570053E0C3 /* SpeedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedCircleView.swift; sourceTree = "<group>"; };
 		A28292CC2C96E9880053E0C3 /* BottomControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlsView.swift; sourceTree = "<group>"; };
 		A28292CE2C96EA4A0053E0C3 /* BikeCockpitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeCockpitView.swift; sourceTree = "<group>"; };
+		A28292D02C96F15F0053E0C3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A28292D32C96F6CD0053E0C3 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		A28292932C9606950053E0C3 /* bike_cockpit */ = {
 			isa = PBXGroup;
 			children = (
+				A28292D22C96F6BC0053E0C3 /* Utility */,
 				A28292C32C96E61B0053E0C3 /* Managers */,
 				A28292C22C96E6140053E0C3 /* Views */,
 				A28292BE2C96438E0053E0C3 /* bike-cockpit-Info.plist */,
@@ -144,6 +149,7 @@
 				A28292CA2C96E9570053E0C3 /* SpeedCircleView.swift */,
 				A28292CC2C96E9880053E0C3 /* BottomControlsView.swift */,
 				A28292CE2C96EA4A0053E0C3 /* BikeCockpitView.swift */,
+				A28292D02C96F15F0053E0C3 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -155,6 +161,14 @@
 				A28292C82C96E9240053E0C3 /* DateTimeManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		A28292D22C96F6BC0053E0C3 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				A28292D32C96F6CD0053E0C3 /* ColorExtension.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,8 +302,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A28292D12C96F15F0053E0C3 /* SettingsView.swift in Sources */,
 				A28292CD2C96E9880053E0C3 /* BottomControlsView.swift in Sources */,
 				A28292CF2C96EA4A0053E0C3 /* BikeCockpitView.swift in Sources */,
+				A28292D42C96F6CD0053E0C3 /* ColorExtension.swift in Sources */,
 				A28292CB2C96E9570053E0C3 /* SpeedCircleView.swift in Sources */,
 				A28292C72C96E6BA0053E0C3 /* SpeedManager.swift in Sources */,
 				A28292952C9606950053E0C3 /* bike_cockpitApp.swift in Sources */,

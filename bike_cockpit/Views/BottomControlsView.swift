@@ -9,20 +9,23 @@ import SwiftUI
 
 struct BottomControlsView: View {
     let distance: Double
-    
+    let distanceUnit: String
+    @Binding var showSettings: Bool  // Binding to control navigation state
+
     var body: some View {
         HStack {
             // Distance traveled
-            Text("\(String(format: "%.1f", distance)) km")
+            Text("\(String(format: "%.1f", distance)) \(distanceUnit)")
                 .font(.title)
                 .foregroundColor(.white)
-            
+
             Spacer()
-            
-            // Settings button without text
+
+            // Button to trigger settings view with smooth transition
             Button(action: {
-                // Action when the settings button is pressed
-                print("Settings button pressed")
+                withAnimation {
+                    showSettings.toggle()  // Trigger the transition animation
+                }
             }) {
                 Image(systemName: "gearshape")
                     .font(.title)
@@ -37,4 +40,5 @@ struct BottomControlsView: View {
         .padding(.horizontal, 30)
     }
 }
+
 
