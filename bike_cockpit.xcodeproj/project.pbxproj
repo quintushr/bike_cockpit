@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		A28292952C9606950053E0C3 /* bike_cockpitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292942C9606950053E0C3 /* bike_cockpitApp.swift */; };
-		A28292972C9606950053E0C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292962C9606950053E0C3 /* ContentView.swift */; };
 		A28292992C9606960053E0C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A28292982C9606960053E0C3 /* Assets.xcassets */; };
 		A282929C2C9606960053E0C3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A282929B2C9606960053E0C3 /* Preview Assets.xcassets */; };
 		A28292A62C9606960053E0C3 /* bike_cockpitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292A52C9606960053E0C3 /* bike_cockpitTests.swift */; };
 		A28292B02C9606960053E0C3 /* bike_cockpitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292AF2C9606960053E0C3 /* bike_cockpitUITests.swift */; };
 		A28292B22C9606960053E0C3 /* bike_cockpitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292B12C9606960053E0C3 /* bike_cockpitUITestsLaunchTests.swift */; };
+		A28292C72C96E6BA0053E0C3 /* SpeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292C62C96E6BA0053E0C3 /* SpeedManager.swift */; };
+		A28292C92C96E9240053E0C3 /* DateTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292C82C96E9240053E0C3 /* DateTimeManager.swift */; };
+		A28292CB2C96E9570053E0C3 /* SpeedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292CA2C96E9570053E0C3 /* SpeedCircleView.swift */; };
+		A28292CD2C96E9880053E0C3 /* BottomControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292CC2C96E9880053E0C3 /* BottomControlsView.swift */; };
+		A28292CF2C96EA4A0053E0C3 /* BikeCockpitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292CE2C96EA4A0053E0C3 /* BikeCockpitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,6 @@
 /* Begin PBXFileReference section */
 		A28292912C9606950053E0C3 /* bike_cockpit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bike_cockpit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28292942C9606950053E0C3 /* bike_cockpitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bike_cockpitApp.swift; sourceTree = "<group>"; };
-		A28292962C9606950053E0C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A28292982C9606960053E0C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A282929B2C9606960053E0C3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A28292A12C9606960053E0C3 /* bike_cockpitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bike_cockpitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +48,11 @@
 		A28292AF2C9606960053E0C3 /* bike_cockpitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bike_cockpitUITests.swift; sourceTree = "<group>"; };
 		A28292B12C9606960053E0C3 /* bike_cockpitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bike_cockpitUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A28292BE2C96438E0053E0C3 /* bike-cockpit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "bike-cockpit-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A28292C62C96E6BA0053E0C3 /* SpeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedManager.swift; sourceTree = "<group>"; };
+		A28292C82C96E9240053E0C3 /* DateTimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeManager.swift; sourceTree = "<group>"; };
+		A28292CA2C96E9570053E0C3 /* SpeedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedCircleView.swift; sourceTree = "<group>"; };
+		A28292CC2C96E9880053E0C3 /* BottomControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlsView.swift; sourceTree = "<group>"; };
+		A28292CE2C96EA4A0053E0C3 /* BikeCockpitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeCockpitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +103,10 @@
 		A28292932C9606950053E0C3 /* bike_cockpit */ = {
 			isa = PBXGroup;
 			children = (
+				A28292C32C96E61B0053E0C3 /* Managers */,
+				A28292C22C96E6140053E0C3 /* Views */,
 				A28292BE2C96438E0053E0C3 /* bike-cockpit-Info.plist */,
 				A28292942C9606950053E0C3 /* bike_cockpitApp.swift */,
-				A28292962C9606950053E0C3 /* ContentView.swift */,
 				A28292982C9606960053E0C3 /* Assets.xcassets */,
 				A282929A2C9606960053E0C3 /* Preview Content */,
 			);
@@ -127,6 +136,25 @@
 				A28292B12C9606960053E0C3 /* bike_cockpitUITestsLaunchTests.swift */,
 			);
 			path = bike_cockpitUITests;
+			sourceTree = "<group>";
+		};
+		A28292C22C96E6140053E0C3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A28292CA2C96E9570053E0C3 /* SpeedCircleView.swift */,
+				A28292CC2C96E9880053E0C3 /* BottomControlsView.swift */,
+				A28292CE2C96EA4A0053E0C3 /* BikeCockpitView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A28292C32C96E61B0053E0C3 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A28292C62C96E6BA0053E0C3 /* SpeedManager.swift */,
+				A28292C82C96E9240053E0C3 /* DateTimeManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,8 +288,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A28292972C9606950053E0C3 /* ContentView.swift in Sources */,
+				A28292CD2C96E9880053E0C3 /* BottomControlsView.swift in Sources */,
+				A28292CF2C96EA4A0053E0C3 /* BikeCockpitView.swift in Sources */,
+				A28292CB2C96E9570053E0C3 /* SpeedCircleView.swift in Sources */,
+				A28292C72C96E6BA0053E0C3 /* SpeedManager.swift in Sources */,
 				A28292952C9606950053E0C3 /* bike_cockpitApp.swift in Sources */,
+				A28292C92C96E9240053E0C3 /* DateTimeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
