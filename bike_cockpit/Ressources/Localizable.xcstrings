@@ -36,11 +36,23 @@
         }
       }
     },
-    "Settings" : {
-
+    "Reset Distance" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset the distance traveled"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Réinitialiser la distance parcourue"
+          }
+        }
+      }
     },
-    "SettingsTitle" : {
-      "extractionState" : "manual",
+    "Settings" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
