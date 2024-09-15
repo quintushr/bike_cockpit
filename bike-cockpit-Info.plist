@@ -6,7 +6,5 @@
 	<array>
 		<dict/>
 	</array>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Nous avons besoin d'accéder à votre localisation pour mesurer votre vitesse.</string>
 </dict>
 </plist>

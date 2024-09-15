@@ -20,6 +20,7 @@
 		A28292CF2C96EA4A0053E0C3 /* BikeCockpitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292CE2C96EA4A0053E0C3 /* BikeCockpitView.swift */; };
 		A28292D12C96F15F0053E0C3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292D02C96F15F0053E0C3 /* SettingsView.swift */; };
 		A28292D42C96F6CD0053E0C3 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28292D32C96F6CD0053E0C3 /* ColorExtension.swift */; };
+		A2A8D6F42C9707D00059D3E5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A2A8D6F32C9707D00059D3E5 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		A28292CE2C96EA4A0053E0C3 /* BikeCockpitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeCockpitView.swift; sourceTree = "<group>"; };
 		A28292D02C96F15F0053E0C3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A28292D32C96F6CD0053E0C3 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		A2A8D6F32C9707D00059D3E5 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		A28292932C9606950053E0C3 /* bike_cockpit */ = {
 			isa = PBXGroup;
 			children = (
+				A2A8D6F22C9707A00059D3E5 /* Ressources */,
 				A28292D22C96F6BC0053E0C3 /* Utility */,
 				A28292C32C96E61B0053E0C3 /* Managers */,
 				A28292C22C96E6140053E0C3 /* Views */,
@@ -169,6 +172,14 @@
 				A28292D32C96F6CD0053E0C3 /* ColorExtension.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		A2A8D6F22C9707A00059D3E5 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				A2A8D6F32C9707D00059D3E5 /* Localizable.xcstrings */,
+			);
+			path = Ressources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +289,7 @@
 			files = (
 				A282929C2C9606960053E0C3 /* Preview Assets.xcassets in Resources */,
 				A28292992C9606960053E0C3 /* Assets.xcassets in Resources */,
+				A2A8D6F42C9707D00059D3E5 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,12 +491,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "bike-cockpit-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nous avons besoin d'accéder à votre localisation pour mesurer votre vitesse.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -512,12 +526,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "bike-cockpit-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nous avons besoin d'accéder à votre localisation pour mesurer votre vitesse.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
