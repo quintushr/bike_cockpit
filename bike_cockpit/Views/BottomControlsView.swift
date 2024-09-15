@@ -10,7 +10,6 @@ import SwiftUI
 struct BottomControlsView: View {
     let distance: Double
     let distanceUnit: String
-    @Binding var showSettings: Bool  // Binding to control navigation state
 
     var body: some View {
         HStack {
@@ -22,11 +21,7 @@ struct BottomControlsView: View {
             Spacer()
 
             // Button to trigger settings view with smooth transition
-            Button(action: {
-                withAnimation {
-                    showSettings.toggle()  // Trigger the transition animation
-                }
-            }) {
+            NavigationLink( destination: SettingsView()) {
                 Image(systemName: "gearshape")
                     .font(.title)
                     .foregroundColor(.white)

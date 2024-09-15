@@ -14,31 +14,9 @@ struct BikeCockpitView: View {
 
     @State private var speedCircleColor: Color = Color.white
 
-    // State to control navigation animation
-    @State private var showSettings: Bool = false
 
     var body: some View {
-        ZStack {
-            if showSettings {
-                // Settings page with full width
-                SettingsView()
-                    .transition(.move(edge: .trailing))  // Slide transition from the right
-                    .animation(.easeInOut(duration: 0.5))  // Smooth animation
-            } else {
-                // Main cockpit view
-                mainCockpitView
-                    .transition(.move(edge: .leading))  // Slide transition from the left
-                    .animation(.easeInOut(duration: 0.5))  // Smooth animation
-            }
-        }
-        .background(Color.black.edgesIgnoringSafeArea(.all))
-        .onAppear {
-            // Convert hex to Color when the view appears
-            speedCircleColor = Color.fromHex(speedCircleColorHex)
-        }
-    }
-
-    var mainCockpitView: some View {
+        NavigationView {
         VStack(spacing: 30) {
             Spacer()
 
@@ -60,9 +38,14 @@ struct BikeCockpitView: View {
             Spacer()
 
             // Distance traveled and settings button
-            BottomControlsView(distance: convertedDistance, distanceUnit: distanceUnit, showSettings: $showSettings)
+            BottomControlsView(distance: convertedDistance, distanceUnit: distanceUnit)
 
             Spacer()
+        }.background(Color.black.edgesIgnoringSafeArea(.all))
+            .onAppear {
+                // Convert hex to Color when the view appears
+                speedCircleColor = Color.fromHex(speedCircleColorHex)
+            }
         }
     }
     
@@ -90,5 +73,3 @@ struct BikeCockpitView_Previews: PreviewProvider {
         BikeCockpitView()
     }
 }
-
-
