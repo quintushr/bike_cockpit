@@ -16,7 +16,9 @@
 
 ## Screenshots
 
-> Include relevant screenshots here.
+<img src="https://github.com/user-attachments/assets/981b1405-3f37-49fa-b09a-80ff47378b0e" alt="Screenshot1" style="width:250px;"/>
+<img src="https://github.com/user-attachments/assets/2e4cfab5-ce30-428b-a454-a4b2dc1bdfb5" alt="Screenshot2" style="width:250px;"/>
+
 
 ## Getting Started
 
