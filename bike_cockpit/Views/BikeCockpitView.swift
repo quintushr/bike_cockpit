@@ -2,8 +2,9 @@ import SwiftUI
 
 struct BikeCockpitView: View {
     @State private var distanceLeft: Double = 120.0
-    let maxSpeed: Double = 50.0  // Maximum speed for the circle
     @State private var lineWidth = CGFloat(15)
+    @State private var speedCircleColor: Color = Color.white
+    
     @ObservedObject var speedManager = SpeedManager()
     @ObservedObject var dateTimeManager = DateTimeManager()  // Use the DateTime manager
 
@@ -12,8 +13,7 @@ struct BikeCockpitView: View {
     @AppStorage("distanceUnit") var distanceUnit: String = "km"
     @AppStorage("speedCircleColorHex") var speedCircleColorHex: String = "#FFFFFF"
 
-    @State private var speedCircleColor: Color = Color.white
-
+    let maxSpeed: Double = 50.0  // Maximum speed for the circle
 
     var body: some View {
         NavigationView {
@@ -38,8 +38,8 @@ struct BikeCockpitView: View {
             Spacer()
 
             // Distance traveled and settings button
-            BottomControlsView(distance: convertedDistance, distanceUnit: distanceUnit)
-
+            BottomControlsView(distanceUnit: distanceUnit, speedManager: speedManager)
+            
             Spacer()
         }.background(Color.black.edgesIgnoringSafeArea(.all))
             .onAppear {

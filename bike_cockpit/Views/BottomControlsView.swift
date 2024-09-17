@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct BottomControlsView: View {
-    let distance: Double
     let distanceUnit: String
-
+    @ObservedObject var speedManager: SpeedManager  // Pass the speedManager object
+    
     var body: some View {
         HStack {
             // Distance traveled
-            Text("\(String(format: "%.1f", distance)) \(distanceUnit)")
+            Text("\(String(format: "%.1f", speedManager.totalDistance)) \(distanceUnit)")
                 .font(.title)
                 .foregroundColor(.white)
 

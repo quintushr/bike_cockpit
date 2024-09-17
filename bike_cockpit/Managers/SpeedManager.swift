@@ -10,6 +10,9 @@ import Foundation
 import CoreLocation
 import SwiftUI
 
+import SwiftUI
+import CoreLocation
+
 class SpeedManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private var locationManager: CLLocationManager
     @Published var speed: Double = 0.0
@@ -19,9 +22,15 @@ class SpeedManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private var speedHistory: [Double] = []  // History of speeds for smoothing
     private let smoothingFactor = 5  // Number of points to use for smoothing the speed
     
+    // Key for UserDefaults to store the total distance
+    private let totalDistanceKey = "totalDistance"
+
     override init() {
         locationManager = CLLocationManager()
         super.init()
+        
+        // Load the stored total distance from UserDefaults when the manager is initialized
+        totalDistance = UserDefaults.standard.double(forKey: totalDistanceKey)
         
         // Configure the location manager
         locationManager.delegate = self
@@ -53,11 +62,20 @@ class SpeedManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             if let lastLocation = lastLocation {
                 let distance = location.distance(from: lastLocation) / 1000.0  // Distance in kilometers
                 totalDistance += distance
+                
+                // Save the updated total distance to UserDefaults
+                UserDefaults.standard.set(totalDistance, forKey: totalDistanceKey)
             }
             
             // Update the last known location
             lastLocation = location
         }
+    }
+    
+    // Function to reset total distance
+    func resetTotalDistance() {
+        totalDistance = 0.0
+        UserDefaults.standard.set(totalDistance, forKey: totalDistanceKey)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
