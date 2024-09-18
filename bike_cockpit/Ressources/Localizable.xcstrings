@@ -17,6 +17,9 @@
     "%lld" : {
 
     },
+    "Cycling Speed Range" : {
+
+    },
     "Distance Unit" : {
       "localizations" : {
         "en" : {
@@ -32,6 +35,12 @@
           }
         }
       }
+    },
+    "Max Speed: %lld km/h" : {
+
+    },
+    "Min Speed: %lld km/h" : {
+
     },
     "Reset Distance" : {
       "localizations" : {

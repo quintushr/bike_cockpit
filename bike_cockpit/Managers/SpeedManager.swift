@@ -22,6 +22,10 @@ class SpeedManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private var speedHistory: [Double] = []  // History of speeds for smoothing
     private let smoothingFactor = 5  // Number of points to use for smoothing the speed
     
+    // AppStorage to store min and max speed bounds
+    @AppStorage("minCyclingSpeed") var minCyclingSpeed: Double = 9.0
+    @AppStorage("maxCyclingSpeed") var maxCyclingSpeed: Double = 40.0
+    
     // Key for UserDefaults to store the total distance
     private let totalDistanceKey = "totalDistance"
 
@@ -58,13 +62,12 @@ class SpeedManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             // Calculate the smoothed speed using moving average
             speed = speedHistory.reduce(0, +) / Double(speedHistory.count)
             
-            // Calculate the distance traveled
-            if let lastLocation = lastLocation {
-                let distance = location.distance(from: lastLocation) / 1000.0  // Distance in kilometers
-                totalDistance += distance
-                
-                // Save the updated total distance to UserDefaults
-                UserDefaults.standard.set(totalDistance, forKey: totalDistanceKey)
+            // Calculate the distance traveled if the speed is within the user-defined range
+            if speed >= minCyclingSpeed && speed <= maxCyclingSpeed {
+                if let lastLocation = lastLocation {
+                    let distance = location.distance(from: lastLocation) / 1000.0  // Distance in kilometers
+                    totalDistance += distance
+                }
             }
             
             // Update the last known location

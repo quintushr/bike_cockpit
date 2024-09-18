@@ -58,14 +58,7 @@ struct BikeCockpitView: View {
         }
     }
     
-    // Computed property to convert distance based on selected unit
-    var convertedDistance: Double {
-        if distanceUnit == "mi" {
-            return speedManager.totalDistance * 0.621371  // Convert km to miles
-        } else {
-            return speedManager.totalDistance  // Default to km
-        }
-    }
+    
 }
 
 struct BikeCockpitView_Previews: PreviewProvider {

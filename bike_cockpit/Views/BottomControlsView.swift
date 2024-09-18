@@ -14,7 +14,7 @@ struct BottomControlsView: View {
     var body: some View {
         HStack {
             // Distance traveled
-            Text("\(String(format: "%.1f", speedManager.totalDistance)) \(distanceUnit)")
+            Text("\(String(format: "%.1f", convertedDistance)) \(distanceUnit)")
                 .font(.title)
                 .foregroundColor(.white)
 
@@ -33,6 +33,15 @@ struct BottomControlsView: View {
             .frame(width: 60, height: 60)  // Button size
         }
         .padding(.horizontal, 30)
+    }
+    
+    // Computed property to convert distance based on selected unit
+    var convertedDistance: Double {
+        if distanceUnit == "mi" {
+            return speedManager.totalDistance * 0.621371  // Convert km to miles
+        } else {
+            return speedManager.totalDistance  // Default to km
+        }
     }
 }
 
