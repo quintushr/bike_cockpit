@@ -21,7 +21,7 @@ struct BottomControlsView: View {
             Spacer()
 
             // Button to trigger settings view with smooth transition
-            NavigationLink( destination: SettingsView()) {
+            NavigationLink( destination: SettingsView(speedManager: speedManager)) {
                 Image(systemName: "gearshape")
                     .font(.title)
                     .foregroundColor(.white)

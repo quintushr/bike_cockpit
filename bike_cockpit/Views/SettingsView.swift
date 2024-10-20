@@ -8,17 +8,12 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    @ObservedObject var speedManager: SpeedManager
+
     @AppStorage("speedUnit") var speedUnit: String = "km/h"
     @AppStorage("distanceUnit") var distanceUnit: String = "km"
     @AppStorage("speedCircleColorHex") var speedCircleColorHex: String = "#FFFFFF"
-
-    // AppStorage to store min and max speed bounds
-    @AppStorage("minCyclingSpeed") var minCyclingSpeed: Double = 9.0
-    @AppStorage("maxCyclingSpeed") var maxCyclingSpeed: Double = 40.0
-
-    
-    @ObservedObject var speedManager = SpeedManager()
-
 
     let speedUnits = ["km/h", "mph"]
     let distanceUnits = ["km", "mi"]
@@ -72,38 +67,13 @@ struct SettingsView: View {
                 .cornerRadius(10)
                 .foregroundColor(.white)
             
-
-                // Speed range for cycling
-            VStack(alignment: .leading, spacing: 10) {
-                Text("Cycling Speed Range")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                
-                HStack {
-                    Text("Min Speed: \(Int(minCyclingSpeed)) \(speedUnit)")
-                        .foregroundColor(.white)
-                    Slider(value: $minCyclingSpeed, in: 0...70, step: 1)
-                        .accentColor(.blue)
-                }
-                
-                HStack {
-                    Text("Max Speed: \(Int(maxCyclingSpeed)) \(speedUnit)")
-                        .foregroundColor(.white)
-                    Slider(value: $maxCyclingSpeed, in: 0...70, step: 1)
-                        .accentColor(.blue)
-                }
-                }
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
-            
             
             Spacer()
             
             // Reset Button for Total Distance
             Button(action: {
                 // Action to reset the total distance
-                speedManager.totalDistance = 0.0
+                speedManager.resetTotalDistance()
             }) {
                 HStack {
                     // Icon for the reset button
@@ -139,7 +109,8 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        let speedManager = SpeedManager()
+        SettingsView(speedManager: speedManager)
     }
 }
 

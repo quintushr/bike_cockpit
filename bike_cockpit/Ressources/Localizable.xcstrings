@@ -17,9 +17,6 @@
     "%lld" : {
 
     },
-    "Cycling Speed Range" : {
-
-    },
     "Distance Unit" : {
       "localizations" : {
         "en" : {
@@ -32,26 +29,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unité de distance"
-          }
-        }
-      }
-    },
-    "Max Speed: %lld %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Max Speed: %1$lld %2$@"
-          }
-        }
-      }
-    },
-    "Min Speed: %lld %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Min Speed: %1$lld %2$@"
           }
         }
       }
