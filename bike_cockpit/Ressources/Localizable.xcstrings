@@ -36,11 +36,25 @@
         }
       }
     },
-    "Max Speed: %lld km/h" : {
-
+    "Max Speed: %lld %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Max Speed: %1$lld %2$@"
+          }
+        }
+      }
     },
-    "Min Speed: %lld km/h" : {
-
+    "Min Speed: %lld %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Min Speed: %1$lld %2$@"
+          }
+        }
+      }
     },
     "Reset Distance" : {
       "localizations" : {
